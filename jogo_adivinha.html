@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	function mostra(frase) {
+		document.write(frase);
+		document.write("<br>");
+	}
+
+	function sorteia(n) {
+		resultado = Math.round(Math.random() * n);
+		return resultado;
+	}
+
+	var numeroPensado = sorteia(100);
+	var chute = prompt("Já pensei. Qual você acha que é?");
+
+	if(isNaN(chute)) {
+		var chute = prompt("Apenas números são válidos. Qual você acha que é?");
+	}
+
+	if(chute == numeroPensado) {
+		mostra("Uau! Você acertou, pois eu pensei no mesmo: " + numeroPensado);
+	} else {
+		if(chute > numeroPensado) {
+			mostra("Você errou! Eu pensei em um número menor: " + numeroPensado);
+		} else {
+			mostra("Você errou! Eu pensei em um número maior: " + numeroPensado);
+		}
+	}
+
+</script>

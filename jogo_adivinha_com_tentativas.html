@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	var numeroPensado = Math.round(Math.random() * 100);
+
+	var numeroDaTentativa = 1;
+	while(numeroDaTentativa <= 7) {
+		var chute = prompt("Qual você acha que é?");
+
+		while(isNaN(chute)) {
+			chute = prompt("Apenas números são válidos. Digite novamente.");
+		}
+
+		if(chute == numeroPensado) {
+			alert("Parabéns! Você acertou!");
+			break;
+		} else {
+			if(chute < numeroPensado) {
+				alert("Você errou! Pensei em um número MAIOR. Tem mais tentativas?");
+			} else {
+				alert("Você errou! Pensei em um número MENOR. Tem mais tentativas?");
+			}
+		}
+
+		numeroDaTentativa++;
+	}
+
+</script>
