@@ -1,0 +1,56 @@
+<meta charset="utf-8">
+
+<input type="text" id="numero">
+<input type="submit" value="Adicione número" id="adicionar">
+<input type="submit" value="Calcular resultado" id="calcular">
+
+<script type="text/javascript">
+
+	// Geração dos 6 números sorteados
+	var sorteados = geraSorteados();
+	console.log(sorteados);
+	function geraSorteados() {
+		var sorteados = [];
+		var compara = 0;
+		for(i = 0; i < 6; i++) {
+			sorteados[i] = Math.round(Math.random() * 60);
+		}
+		for(i = 1; i < 6; i++) {
+			if(sorteados[i] == sorteados[i - 1]) {
+				sorteados[i] = Math.round(Math.random() * 60);
+			}
+		}
+		return sorteados;
+	}
+
+	// Inserção dos 6 números escolhidos pelo usuário
+	var numerosEscolhidos = [];
+
+	function adicionaNumero() {
+		var numero = parseInt(document.getElementById("numero").value);
+		numerosEscolhidos.push(numero);
+		console.log(numerosEscolhidos);
+	}
+
+	// Função de cálculo do resultado
+	function calculaResultado() {
+		acertos = 0;
+		for(i = 0; i < numerosEscolhidos.length; i++) {
+			valor = numerosEscolhidos[i];
+			for (j = 0; j < sorteados.length; j++) {
+				if(valor == sorteados[j]) {
+					acertos = acertos + 1;
+				}
+			}
+		}
+		alert("Seu número de acertos foi de: " + acertos);
+	}
+
+	// Ações dos botões
+	var botao = document.getElementById("adicionar");
+	botao.onclick = adicionaNumero;
+	var botao2 = document.getElementById("calcular");
+	botao2.onclick = calculaResultado;
+	
+
+</script>

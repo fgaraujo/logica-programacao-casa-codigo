@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+
+<input type="text" id="numero">
+<input type="submit" id="adivinhar" value="Comparar">
+
+<script type="text/javascript">
+
+	// Array de números sorteados
+	var segredos = [16, 34, 37, 42, 50, 58]
+
+	// Parâmetros para recebimento do número digitado e comparação com o array
+	var caixaDoNumero = document.getElementById("numero");
+	function botaoClicado() {
+		for(var i = 0; i < segredos.length; i++) {
+			if(segredos[i] == caixaDoNumero.value) {
+				alert("Parabéns! Você acertou o " + (i + 1) + "-ésimo número!");
+				return;
+			}
+		}
+		alert("Infelizmente, você errou!");
+	}
+
+	// Ação do clique do botão de comparação
+	var botaoAdivinhar = document.getElementById("adivinhar");
+	botaoAdivinhar.onclick = botaoClicado;
+
+</script>
